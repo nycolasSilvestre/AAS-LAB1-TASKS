@@ -22,6 +22,7 @@ import org.ual.ass.nzs.util.HibernateUtil;
 @WebServlet(urlPatterns = "/list")
 public class TaskServiceList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	TaskListController tlc = new TaskListController();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -35,21 +36,25 @@ public class TaskServiceList extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-		TaskList taskList = new TaskList("Lista de exemplo");
+
+		tlc.addList("Teste top");
+		
+		//SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		
+		//TaskList taskList = new TaskList();
 		
 		// Adicionar tarefas
-		taskList.addTask(new Task("Primeira tarefa1."));
-		taskList.addTask(new Task("Segunda tarefa2."));
-		taskList.addTask(new Task("Terceira tarefa3."));
+		//taskList.addTask(new Task("Primeira tarefa1."));
+		//taskList.addTask(new Task("Segunda tarefa2."));
+		//taskList.addTask(new Task("Terceira tarefa3."));
 		
 		// Gravar a lista
 		
-		Session session = sessionFactory.openSession();
-		session.beginTransaction();
-		session.save(taskList);
-		session.getTransaction().commit();
-		session.close();
+		//Session session = sessionFactory.openSession();
+		//session.beginTransaction();
+		//session.save(taskList);
+		//session.getTransaction().commit();
+		//session.close();
 	}
 
 	/**
