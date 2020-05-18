@@ -14,6 +14,7 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.ual.ass.nzs.models.Task;
 import org.ual.ass.nzs.models.TaskList;
+import org.ual.ass.nzs.util.HibernateUtil;
 
 /**
  * Servlet implementation class TaskServiceList
@@ -34,26 +35,16 @@ public class TaskServiceList extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		TaskList taskList = new TaskList("Lista de exemplo");
 		
 		// Adicionar tarefas
-		taskList.addTask(new Task("Primeira tarefa."));
-		taskList.addTask(new Task("Segunda tarefa."));
-		taskList.addTask(new Task("Terceira tarefa."));
+		taskList.addTask(new Task("Primeira tarefa1."));
+		taskList.addTask(new Task("Segunda tarefa2."));
+		taskList.addTask(new Task("Terceira tarefa3."));
 		
 		// Gravar a lista
-		SessionFactory sessionFactory = null;
-		final StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
-				//.configure()
-				.configure("hibernate.cfg.xml")
-				.build();
-		try {
-			sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			System.exit(1);
-		}
+		
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		session.save(taskList);
