@@ -1,1 +1,3 @@
+org\ual\ass\nzs\models\Task.class
 org\ual\ass\nzs\controllers\TaskServiceList.class
+org\ual\ass\nzs\models\TaskList.class
