@@ -15,7 +15,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.ual.ass.nzs.models.Task;
 import org.ual.ass.nzs.models.TaskList;
 import org.ual.ass.nzs.util.HibernateUtil;
-
+import java.util.List;
 /**
  * Servlet implementation class TaskServiceList
  */
@@ -36,8 +36,12 @@ public class TaskServiceList extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		tlc.addList("Teste top");
+		List task = tlc.getLists();
+		for (TaskList taskList :(List<TaskList>) task) {
+			response.getWriter().write(taskList.getName());
+			
+		}
+		//tlc.addList("Teste top");
 		
 		//SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		
