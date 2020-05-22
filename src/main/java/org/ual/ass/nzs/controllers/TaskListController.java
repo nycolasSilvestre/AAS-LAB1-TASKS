@@ -4,16 +4,15 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.ual.ass.nzs.models.Task;
 import org.ual.ass.nzs.models.TaskList;
 import org.ual.ass.nzs.util.HibernateUtil;
 
 public class TaskListController {
-	SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+	static SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 	public TaskListController() {
 		super();
 	}
-	public int addList(String listName) {
+	public static int addList(String listName) {
 		TaskList taskList = new TaskList(listName);
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
@@ -23,14 +22,14 @@ public class TaskListController {
 		
 		return id;
 	}
-	public List<TaskList> getLists(){
+	public static List<TaskList> getLists(){
 		Session session = sessionFactory.openSession();
 		List allLists = session.createQuery("from TaskList").list();	
 		session.getTransaction().commit();
 		session.close();	
 		return (List<TaskList>)allLists;
 	}
-	public TaskList getListById(int id){
+	public static TaskList getListById(int id){
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		TaskList taskList = (TaskList) session.get(TaskList.class, id);
@@ -38,13 +37,23 @@ public class TaskListController {
 		session.close();	
 		return taskList;
 	}
-	public void addTask(Task task, int Listid){
-		TaskList list = getListById(Listid);
-		list.addTask(task);
+	
+	public static void updateListName(int id, String newName) {
+		TaskList temp = getListById(id);
+		temp.setName(newName);
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
-		session.update(list);
+		session.update(temp);
 		session.getTransaction().commit();
-		session.close();
+		session.close();		
 	}
+	public static void deleteList(int id) {
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		TaskList temp = getListById(id);
+		session.delete(temp);
+		session.getTransaction().commit();
+		session.close();		
+	}
+	
 }

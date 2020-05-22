@@ -44,7 +44,8 @@ public class TaskServiceList extends HttpServlet {
 		//	response.getWriter().write(taskList.getName());
 			
 		//}
-		int id = tlc.addList("Teste top");
+		
+		int id = TaskListController.addList("Teste 1");
 		Task nw = new Task();
 		Task nw0 = new Task();
 		Task nw1 = new Task();
@@ -52,9 +53,15 @@ public class TaskServiceList extends HttpServlet {
 		nw0.setDescription("teste 1000 grau 1");
 		nw1.setDescription("teste 1000 grau 2");
 		nw.setState("Started");
-		tlc.addTask(nw,id);
-		tlc.addTask(nw0,id);
-		tlc.addTask(nw1,id);
+		
+		TaskController.addTask(nw,id);
+		TaskController.addTask(nw0,id);
+		TaskController.addTask(nw1,id);
+		TaskList tls = TaskListController.getListById(id);
+		//response.getWriter().write(tls.getName());	
+		for (Task t : tls.getTasks()) {
+			response.getWriter().write(t.getDescription());		
+		}
 		
 		
 		//SessionFactory sessionFactory = HibernateUtil.getSessionFactory();

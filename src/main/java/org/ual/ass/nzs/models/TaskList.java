@@ -62,7 +62,7 @@ public class TaskList {
 	}
 	
 	public void addTask(Task task) {
-		this.tasks.add(task);
+		 this.tasks.add(task);
 	}
 
 }
