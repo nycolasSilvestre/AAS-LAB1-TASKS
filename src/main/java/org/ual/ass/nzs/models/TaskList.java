@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -22,8 +23,8 @@ public class TaskList {
 	
 	@ElementCollection
 	@OneToMany(
-		    orphanRemoval = true,
-		    cascade = CascadeType.ALL)
+		    orphanRemoval = false,
+		    cascade = CascadeType.ALL,fetch=FetchType.EAGER)
 	private List<Task> tasks;
 
 	public TaskList() {

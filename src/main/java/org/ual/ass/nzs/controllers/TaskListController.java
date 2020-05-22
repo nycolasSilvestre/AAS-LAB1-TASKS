@@ -13,19 +13,17 @@ public class TaskListController {
 	public TaskListController() {
 		super();
 	}
-	public void addList(String taskName) {
-		//SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-		TaskList taskList = new TaskList(taskName);
-		//taskList.addTask(new Task("Primeira tarefa1."));
-		//taskList.addTask(new Task("Segunda tarefa2."));
-		//taskList.addTask(new Task("Terceira tarefa3."));
+	public int addList(String listName) {
+		TaskList taskList = new TaskList(listName);
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
-		session.save(taskList);
+		int id = (int) session.save(taskList);
 		session.getTransaction().commit();
 		session.close();
+		
+		return id;
 	}
-	public List<TaskList> getLists() {
+	public List<TaskList> getLists(){
 		Session session = sessionFactory.openSession();
 		List allLists = session.createQuery("from TaskList").list();	
 		session.getTransaction().commit();
@@ -39,5 +37,14 @@ public class TaskListController {
 		session.getTransaction().commit();
 		session.close();	
 		return taskList;
+	}
+	public void addTask(Task task, int Listid){
+		TaskList list = getListById(Listid);
+		list.addTask(task);
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		session.update(list);
+		session.getTransaction().commit();
+		session.close();
 	}
 }

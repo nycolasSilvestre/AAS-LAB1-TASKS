@@ -36,14 +36,26 @@ public class TaskServiceList extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		TaskList taskList = tlc.getListById(13);
-		response.getWriter().write(taskList.getName());
+		//tlc.addList(listName);
+		//TaskList taskList = tlc.getListById(13);
+		//response.getWriter().write(taskList.getName());
 		//List task = tlc.getLists();
 		//for (TaskList taskList :(List<TaskList>) task) {
 		//	response.getWriter().write(taskList.getName());
 			
 		//}
-		//tlc.addList("Teste top");
+		int id = tlc.addList("Teste top");
+		Task nw = new Task();
+		Task nw0 = new Task();
+		Task nw1 = new Task();
+		nw.setDescription("teste 1000 grau");
+		nw0.setDescription("teste 1000 grau 1");
+		nw1.setDescription("teste 1000 grau 2");
+		nw.setState("Started");
+		tlc.addTask(nw,id);
+		tlc.addTask(nw0,id);
+		tlc.addTask(nw1,id);
+		
 		
 		//SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		
