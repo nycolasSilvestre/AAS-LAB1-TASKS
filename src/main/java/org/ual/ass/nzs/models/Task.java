@@ -22,7 +22,7 @@ public class Task {
 	public Task(String description) {
 		super();
 		this.description = description;
-		this.state = "doing";
+		this.state = "Created";
 	}
 
 	public int getId() {
