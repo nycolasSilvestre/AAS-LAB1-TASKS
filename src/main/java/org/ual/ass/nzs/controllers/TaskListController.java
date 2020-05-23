@@ -26,7 +26,7 @@ public class TaskListController {
 	public List<TaskList> getLists(){
 		Session session = sessionFactory.openSession();
 		List allLists = session.createQuery("from TaskList").list();	
-		session.getTransaction().commit();
+		//session.getTransaction().commit();
 		session.close();	
 		return (List<TaskList>)allLists;
 	}
@@ -103,5 +103,4 @@ public class TaskListController {
 		session.getTransaction().commit();
 		session.close();	
 	}
-	
 }
