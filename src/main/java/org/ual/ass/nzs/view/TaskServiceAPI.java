@@ -17,9 +17,7 @@ import org.ual.ass.nzs.models.Task;
 import org.ual.ass.nzs.models.TaskList;
 import org.ual.ass.nzs.util.HibernateUtil;
 import java.util.List;
-/**
- * Servlet implementation class TaskServiceAPI
- */
+
 @WebServlet("/lists/*")
 public class TaskServiceAPI extends HttpServlet {
 	private static final long serialVersionUID = 1L;

@@ -5,7 +5,7 @@
   	<servlet-name>TaskServiceList</servlet-name>
   	<display-name>TaskServiceList</display-name>
   	<description></description>
-  	<servlet-class>org.ual.ass.nzs.view.TaskServiceList</servlet-class>
+  	<servlet-class>org.ual.ass.nzs.view.TaskServiceAPI</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>TaskServiceList</servlet-name>
