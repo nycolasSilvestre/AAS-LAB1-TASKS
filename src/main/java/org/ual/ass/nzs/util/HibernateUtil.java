@@ -15,10 +15,9 @@ public class HibernateUtil {
 	}
 	
 	public static SessionFactory getSessionFactory(){
-		if(sessionFactory == null) {
+		if(sessionFactory == null ) {
 			sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
 		}
 		return sessionFactory;
-		
 	}
 }

@@ -1,5 +1,6 @@
 org\ual\ass\nzs\controllers\TaskListController.class
+org\ual\ass\nzs\view\TaskServiceAPI.class
+org\ual\ass\nzs\util\JsonUtil.class
 org\ual\ass\nzs\util\HibernateUtil.class
-org\ual\ass\nzs\view\TaskServiceList.class
 org\ual\ass\nzs\models\Task.class
 org\ual\ass\nzs\models\TaskList.class

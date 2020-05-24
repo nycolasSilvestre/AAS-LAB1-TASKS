@@ -2,4 +2,5 @@ C:\Users\Nycolas Silvestre\Documents\Aulas UAL\AAS\assWS\taskservice\src\main\ja
 C:\Users\Nycolas Silvestre\Documents\Aulas UAL\AAS\assWS\taskservice\src\main\java\org\ual\ass\nzs\models\Task.java
 C:\Users\Nycolas Silvestre\Documents\Aulas UAL\AAS\assWS\taskservice\src\main\java\org\ual\ass\nzs\models\TaskList.java
 C:\Users\Nycolas Silvestre\Documents\Aulas UAL\AAS\assWS\taskservice\src\main\java\org\ual\ass\nzs\util\HibernateUtil.java
-C:\Users\Nycolas Silvestre\Documents\Aulas UAL\AAS\assWS\taskservice\src\main\java\org\ual\ass\nzs\view\TaskServiceList.java
+C:\Users\Nycolas Silvestre\Documents\Aulas UAL\AAS\assWS\taskservice\src\main\java\org\ual\ass\nzs\view\TaskServiceAPI.java
+C:\Users\Nycolas Silvestre\Documents\Aulas UAL\AAS\assWS\taskservice\src\main\java\org\ual\ass\nzs\util\JsonUtil.java

@@ -64,5 +64,10 @@ public class TaskList {
 	public void addTask(Task task) {
 		 this.tasks.add(task);
 	}
+	public Task getLastInsertedTask() {
+		Task lastTask = tasks.get(tasks.size()-1);
+		return lastTask;
+	}
+	
 
 }
